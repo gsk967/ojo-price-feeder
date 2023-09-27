@@ -66,6 +66,7 @@ func NewOracleClient(
 	validatorAddrString string,
 	grpcEndpoint string,
 	gasAdjustment float64,
+	gasPrices string,
 ) (OracleClient, error) {
 	oracleAddr, err := sdk.AccAddressFromBech32(oracleAddrString)
 	if err != nil {
@@ -86,6 +87,7 @@ func NewOracleClient(
 		ValidatorAddrString: validatorAddrString,
 		Encoding:            umeeapp.MakeEncodingConfig(),
 		GasAdjustment:       gasAdjustment,
+		GasPrices:           gasPrices,
 		GRPCEndpoint:        grpcEndpoint,
 	}
 
@@ -251,7 +253,7 @@ func (oc OracleClient) CreateClientContext() (client.Context, error) {
 		From:              keyInfo.Name,
 		OutputFormat:      "json",
 		UseLedger:         false,
-		Simulate:          false,
+		Simulate:          true,
 		GenerateOnly:      false,
 		Offline:           false,
 		SkipConfirm:       true,

@@ -48,6 +48,7 @@ type (
 		RPC                 RPC                 `mapstructure:"rpc" validate:"required,gt=0,dive,required"`
 		Telemetry           telemetry.Config    `mapstructure:"telemetry"`
 		GasAdjustment       float64             `mapstructure:"gas_adjustment" validate:"required"`
+		GasPrices           string              `mapstructure:"gas_prices" validate:"required"`
 		ProviderTimeout     string              `mapstructure:"provider_timeout"`
 		ProviderMinOverride bool                `mapstructure:"provider_min_override"`
 		ProviderEndpoints   []provider.Endpoint `mapstructure:"provider_endpoints" validate:"dive"`

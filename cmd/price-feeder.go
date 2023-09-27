@@ -150,6 +150,7 @@ func priceFeederCmdHandler(cmd *cobra.Command, args []string) error {
 		cfg.Account.Validator,
 		cfg.RPC.GRPCEndpoint,
 		cfg.GasAdjustment,
+		cfg.GasPrices,
 	)
 	if err != nil {
 		return err
